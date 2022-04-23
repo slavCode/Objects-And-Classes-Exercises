@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountWorkingDays", "CountWorkingDays\CountWorkingDays.csproj", "{871D5704-F78E-49D5-BD6A-B79ACCAC3BC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertisementMessage", "AdvertisementMessage\AdvertisementMessage.csproj", "{39D1625C-CE7A-42D5-8A12-5B8353FF6EA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{871D5704-F78E-49D5-BD6A-B79ACCAC3BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{871D5704-F78E-49D5-BD6A-B79ACCAC3BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{871D5704-F78E-49D5-BD6A-B79ACCAC3BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D1625C-CE7A-42D5-8A12-5B8353FF6EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D1625C-CE7A-42D5-8A12-5B8353FF6EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D1625C-CE7A-42D5-8A12-5B8353FF6EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D1625C-CE7A-42D5-8A12-5B8353FF6EA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

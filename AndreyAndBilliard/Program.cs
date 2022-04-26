@@ -19,48 +19,54 @@ namespace AndreyAndBilliard
             while (input != "end of clients")
             {
                 string[] inputClient = input.Split('-').ToArray();
-                string clientName = inputClient[0];
                 var productAndQuantity = inputClient[1].Split(',').ToArray();
+
+                string clientName = inputClient[0];
                 string productName = productAndQuantity[0];
                 if (entities.ContainsKey(productName))
                 {
-                    int quantity = int.Parse(productAndQuantity[1]);
-                    var products = new Dictionary<string, int>();
-                    products.Add(productName, quantity);
-
-                    if (!clients.Any(c => c.Name == clientName))
-                    {
-                        Client client = new Client();
-                        client.Name = clientName;
-                        client.Products = products;
-                        decimal currPrice = entities[productName];
-                        client.Bill = currPrice * quantity;
-
-                        clients.Add(client);
-                    }
-                    else
-                    {
-                        foreach (var client in clients)
-                        {
-                            if (client.Name == clientName)
-                            {
-                                if (!client.Products.ContainsKey(productName))
-                                {
-                                    client.Products.Add(productName, quantity);
-                                }
-                                else client.Products[productName] += quantity;
-
-                                decimal currPrice = entities[productName];
-                                client.Bill += currPrice * quantity;
-                            }
-                        }
-                    }
+                    AddClient(entities, clients, productAndQuantity, clientName, productName);
                 }
 
                 input = Console.ReadLine();
             }
 
             PrintBill(clients);
+        }
+
+        private static void AddClient(Dictionary<string, decimal> entities, List<Client> clients, string[] productAndQuantity, string clientName, string productName)
+        {
+            int quantity = int.Parse(productAndQuantity[1]);
+            var products = new Dictionary<string, int>();
+            products.Add(productName, quantity);
+
+            if (!clients.Any(c => c.Name == clientName))
+            {
+                Client client = new Client();
+                client.Name = clientName;
+                client.Products = products;
+                decimal currPrice = entities[productName];
+                client.Bill = currPrice * quantity;
+
+                clients.Add(client);
+            }
+            else
+            {
+                foreach (var client in clients)
+                {
+                    if (client.Name == clientName)
+                    {
+                        if (!client.Products.ContainsKey(productName))
+                        {
+                            client.Products.Add(productName, quantity);
+                        }
+                        else client.Products[productName] += quantity;
+
+                        decimal currPrice = entities[productName];
+                        client.Bill += currPrice * quantity;
+                    }
+                }
+            }
         }
 
         private static void PrintBill(List<Client> clients)
